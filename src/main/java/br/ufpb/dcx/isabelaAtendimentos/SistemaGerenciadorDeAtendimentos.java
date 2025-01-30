@@ -10,7 +10,7 @@ public interface SistemaGerenciadorDeAtendimentos {
     public int contaAtendimentosDeMedicoNoMes(String crmMedico,
                                               int mes, int ano);
     public void cadastrarAtendimento(String codigoFicha,
-                                     CategoriaAtendimento categoria, String cpfPaciente, String crmMedico, Data diaAtendimento) throws MedicoNaoCadastradoException, AtendimentoJaCadastradoException;
+                                     CategoriaAtendimento categoria, String cpfPaciente, String crmMedico, Data diaAtendimento) throws MedicoNaoCadastrado, AtendimentoJaCadastrado;
     public AtendimentoMedico pesquisaAtendimento(String codigoFicha)
             throws AtendimentoNaoCadastradoException;
     public Collection<AtendimentoMedico> pesquisaAtendimentosDoDia(

@@ -17,7 +17,7 @@ public class SistemaGerenciadorAtendimentosPostoRioTintoTest {
             sitema.cadastrarMedico(11111, "ANA");
             sitema.cadastrarAtendimento("123", CategoriaAtendimento.CARDIOLOGICO, "155.090.224-50",11111, new Data(8,8, 2024)).size()==1);
         }
-
+            //TODO
 
     }
 
