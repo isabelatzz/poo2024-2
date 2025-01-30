@@ -1,27 +1,26 @@
 package br.ufpb.dcx.isabela.amigosecreto;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-    public class SistemaAmigo {
-        private List<Mensagem> mensagens;
-        private List<Amigo> amigos;
+public class SistemaAmigo {
+        private Map<String, Mensagem> mensagens;
+        private Map<String, Amigo> amigos;
 
         public SistemaAmigo() {
-            this.mensagens = new ArrayList<>();
-            this.amigos = new ArrayList<>();
+            this.mensagens = new HashMap<>();
+            this.amigos = new HashMap<>();
         }
 
         public void cadastraAmigo(String nome, String email) {
             Amigo novoAmigo = new Amigo(nome, email);
-            amigos.add(novoAmigo);
+            this.amigos.put(nome, novoAmigo);
         }
 
         public Amigo pesquisaAmigo(String email) {
-            for (Amigo amigo : amigos) {
-                if (amigo.getEmail().equalsIgnoreCase(email)) {
-                    return amigo;
+            for (Amigo at: this.amigos.values()) {
+                if (at.getEmail().equalsIgnoreCase(email)) {
+                    return at;
                 }
             }
             return null;
@@ -34,7 +33,7 @@ import java.util.List;
                 return;
             }
             MensagemParaTodos mensagem = new MensagemParaTodos(texto, emailRemetente, anonima);
-            mensagens.add(mensagem);
+            this.mensagens.put(texto, mensagem);
         }
 
         public void enviarMensagemParaAlguem(String texto, String emailRemetente, String emailDestinatario, boolean anonima) {
@@ -45,13 +44,13 @@ import java.util.List;
             }
 
             MensagemParaAlguem mensagensAlguem = new MensagemParaAlguem(emailRemetente, emailDestinatario, anonima);
-            mensagens.add(mensagensAlguem);
+            mensagens.put(texto, mensagensAlguem);
         }
 
         public List<Mensagem> pesquisaMensagemAnonima() {
             List<Mensagem> mensagensAnonimas = new ArrayList<>();
 
-            for (Mensagem mensagem : mensagens) {
+            for (Mensagem mensagem : this.mensagens.values()) {
                 if (mensagem.ehAnonima()) {
                     mensagensAnonimas.add(mensagem);
                 }
@@ -59,8 +58,8 @@ import java.util.List;
             return mensagensAnonimas;
         }
 
-        public List<Mensagem> pesquisaTodasAsMensagens() {
-            return mensagens;
+        public Collection<Mensagem> pesquisaTodasAsMensagens() {
+            return mensagens.values();
         }
 
 
@@ -95,8 +94,8 @@ import java.util.List;
             return amigoSecretoEmail;
         }
 
-        public List <Amigo> getAmigos() {
-            return amigos;
+        public Collection<Amigo> getAmigos() {
+            return amigos.values();
         }
 
     }
