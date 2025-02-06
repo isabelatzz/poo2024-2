@@ -34,7 +34,7 @@ public class SistemaGerenciaProfsMapTest {
 
             //IV
             List <String> disciplinasJoseDepois = sistema.consultaNomesDisciplinasDoProfessor(111);
-            assert(1, disciplinasJoseDepois.size());
+            assertEquals(1, disciplinasJoseDepois.size());
             assertTrue(disciplinasJoseDepois.get(0).equals("POO"));
 
 
