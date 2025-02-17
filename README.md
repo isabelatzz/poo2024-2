@@ -2,6 +2,7 @@
 Códigos da disciplina POO do período 2024-2
 
 - Sistema de mídias 
-- Sistema do amigo secreto
-- Sistema gerenciador atendimentos posto rio tinto
+- Sistema do amigo secreto 
+- Sistema gerenciador atendimentos posto rio tinto 
 - Ataualização SistemaAmigoMap
+- SistemaLojasRoupasPOO PROVA COMPLETO ✔
